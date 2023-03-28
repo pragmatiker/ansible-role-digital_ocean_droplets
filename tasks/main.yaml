@@ -1,0 +1,9 @@
+---
+- name: Deploy Droplets        
+  import_tasks: create_droplets_tasks.yaml
+  delegate_to: localhost
+
+- name: Destroy Droplets        
+  import_tasks: destroy_droplets_tasks.yaml
+  when: destroy_droplets | default(False)  
+  delegate_to: localhost  
